@@ -1,0 +1,8 @@
+{
+    "appId": "com.realultra.salah-reminder-muscat",
+    "files": ["dist-electron", "dist-react"],
+    "icon": "./desktop-icon.png",
+    "win": {
+        "target": ["portable", "msi"]
+    }
+}
