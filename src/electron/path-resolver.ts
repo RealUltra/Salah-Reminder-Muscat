@@ -1,6 +1,7 @@
 import { app } from "electron";
 import path from "path";
 import { isDev } from "./utils.js";
+import { pathToFileURL } from "url";
 
 export function getPreloadPath() {
   return path.join(
@@ -8,4 +9,8 @@ export function getPreloadPath() {
     isDev() ? "." : "..",
     "dist-electron/preload.cjs"
   );
+}
+
+export function getUIPath() {
+  return path.join(app.getAppPath(), "dist-react/index.html");
 }
