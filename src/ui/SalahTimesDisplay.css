@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  background-image: url('assets/background-v3.png');
+  background-image: url('assets/background.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -30,7 +30,7 @@ body {
 }
 
 table {
-  border-collapse: collapse; /* Removes double borders */
+  border-collapse: collapse; 
 }
 
 th, td {

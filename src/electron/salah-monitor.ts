@@ -194,8 +194,8 @@ async function sendReminder(reminder: Reminder, mainWindow: BrowserWindow) {
     detail: detail,
   };
 
-  const response = await dialog.showMessageBox(mainWindow, options);
-  const yes = response.response === 0;
+  const result = await dialog.showMessageBox(mainWindow, options);
+  const yes = result.response === 0;
 
   if (yes && reminder.salah === userRecord.salah) {
     userRecord.prayed = true;
