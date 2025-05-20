@@ -19,7 +19,6 @@ body {
   left: 88px;
   font-size: 60px;
   font-weight: bold;
-  user-select: none;
 }
 
 .current-date {
@@ -28,12 +27,10 @@ body {
   left: 125px;
   font-size: 30px;
   font-weight: bold;
-  user-select: none;
 }
 
 table {
   border-collapse: collapse; /* Removes double borders */
-  user-select: none;
 }
 
 th, td {
@@ -49,6 +46,10 @@ th {
 td {
   border: 1px solid black;
   padding: 8px; 
+}
+
+.active {
+  background-color: #b3e5fc;
 }
 
 .salah-table {
@@ -68,7 +69,7 @@ td {
 }
 
 .reload-button {
-  background: none;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -81,4 +82,33 @@ td {
 .reload-icon {
   width: 25px;
   height: 25px;
+}
+
+.nav-buttons {
+  position: absolute;
+  top: 110px;
+  left: 145px;
+  display: flex;
+  gap: 54px;
+}
+
+.nav-button {
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.disabled {
+  background-color: lightgrey;
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
 }

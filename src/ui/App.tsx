@@ -5,6 +5,7 @@ function App() {
   const [salahTimesPayload, setSalahTimesPayload] =
     useState<SalahTimesPayload | null>(null);
   const [reload, setReload] = useState(0);
+  const [view, setView] = useState(0);
 
   useEffect(() => {
     window.electron.getSalahTimes().then((payload) => {
@@ -17,11 +18,22 @@ function App() {
     setReload((prev) => prev + 1);
   }
 
+  const viewNames: ["yesterday", "today", "tomorrow"] = [
+    "yesterday",
+    "today",
+    "tomorrow",
+  ];
+  const salahTimes = salahTimesPayload
+    ? salahTimesPayload[viewNames[view + 1]]
+    : null;
+
   return (
     <>
       <SalahTimesDisplay
-        salahTimes={salahTimesPayload?.today ?? null}
+        salahTimes={salahTimes}
         onReload={doReload}
+        view={view}
+        setView={(view: number) => setView(view)}
       />
     </>
   );
