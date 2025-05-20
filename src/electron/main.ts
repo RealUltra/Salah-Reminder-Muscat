@@ -22,6 +22,11 @@ app.on("ready", async () => {
     mainWindow.loadURL("http://localhost:7000");
   } else {
     mainWindow.loadFile(getUIPath());
+
+    app.setLoginItemSettings({
+      openAtLogin: false,
+      path: app.getPath("exe"),
+    });
   }
 
   createTray(mainWindow);
