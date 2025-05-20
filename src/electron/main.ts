@@ -14,6 +14,7 @@ app.on("ready", async () => {
     height: 650,
     resizable: false,
     autoHideMenuBar: true,
+    alwaysOnTop: true,
   });
 
   if (isDev()) {
@@ -26,5 +27,5 @@ app.on("ready", async () => {
     return getSalahTimesPayload();
   });
 
-  await scheduleReminders();
+  await scheduleReminders(mainWindow);
 });
