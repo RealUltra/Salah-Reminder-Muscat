@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
+import SalahTimesDisplay from "./SalahTimesDisplay";
 
 function App() {
-  const [salahTimes, setSalahTimes] = useState<SalahTimesPayload | null>(null);
+  const [salahTimesPayload, setSalahTimesPayload] =
+    useState<SalahTimesPayload | null>(null);
+  const [reload, setReload] = useState(0);
 
   useEffect(() => {
     window.electron.getSalahTimes().then((payload) => {
-      setSalahTimes(payload);
+      setSalahTimesPayload(payload);
     });
-  }, []);
+  }, [reload]);
+
+  function doReload() {
+    setSalahTimesPayload(null);
+    setReload((prev) => prev + 1);
+  }
 
   return (
     <>
-      <h1> Salah-Reminder-Muscat </h1>
-      <p> {JSON.stringify(salahTimes)} </p>
+      <SalahTimesDisplay
+        salahTimes={salahTimesPayload?.today ?? null}
+        onReload={doReload}
+      />
     </>
   );
 }

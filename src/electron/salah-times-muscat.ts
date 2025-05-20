@@ -4,6 +4,8 @@ import { parseDate, parseTime, getIsoDate } from "./salah-times-utils.js";
 
 type MultipleSalahTimes = Record<string, SalahTimes>;
 
+type SalahName = "fajr" | "dhuhr" | "asr" | "maghrib" | "ishaa";
+
 export async function getSalahTimesForMonth(
   year: number | null = null,
   monthNum: number | null = null
@@ -61,12 +63,24 @@ export async function getSalahTimesForMonth(
       }
 
       const salahTimes: SalahTimes = {
-        fajr: fajrTime!,
-        sunrise: sunriseTime!,
-        dhuhr: dhuhrTime!,
-        asr: asrTime!,
-        maghrib: maghribTime!,
-        ishaa: ishaaTime!,
+        fajr: {
+          adhaanTime: fajrTime,
+          iqamahTime: getIqamahTime("fajr", fajrTime),
+        },
+        sunrise: sunriseTime,
+        dhuhr: {
+          adhaanTime: dhuhrTime,
+          iqamahTime: getIqamahTime("dhuhr", dhuhrTime),
+        },
+        asr: { adhaanTime: asrTime, iqamahTime: getIqamahTime("asr", asrTime) },
+        maghrib: {
+          adhaanTime: maghribTime,
+          iqamahTime: getIqamahTime("maghrib", maghribTime),
+        },
+        ishaa: {
+          adhaanTime: ishaaTime,
+          iqamahTime: getIqamahTime("ishaa", ishaaTime),
+        },
       };
 
       const isoDate = getIsoDate(date!);
@@ -123,6 +137,33 @@ export async function getSalahTimesForDates(
   }
 
   return results;
+}
+
+export function getIqamahTime(salahName: SalahName, salahTime: Date): Date {
+  const iqamahTime = new Date(salahTime);
+
+  switch (salahName) {
+    case "fajr": {
+      iqamahTime.setMinutes(iqamahTime.getMinutes() + 25);
+      return iqamahTime;
+    }
+    case "dhuhr": {
+      iqamahTime.setMinutes(iqamahTime.getMinutes() + 15);
+      return iqamahTime;
+    }
+    case "asr": {
+      iqamahTime.setMinutes(iqamahTime.getMinutes() + 20);
+      return iqamahTime;
+    }
+    case "maghrib": {
+      iqamahTime.setMinutes(iqamahTime.getMinutes() + 5);
+      return iqamahTime;
+    }
+    case "ishaa": {
+      iqamahTime.setMinutes(iqamahTime.getMinutes() + 20);
+      return iqamahTime;
+    }
+  }
 }
 
 export async function getSalahTimesPayload(): Promise<SalahTimesPayload | null> {

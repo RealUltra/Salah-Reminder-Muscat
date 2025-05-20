@@ -8,6 +8,10 @@ app.on("ready", async () => {
     webPreferences: {
       preload: getPreloadPath(),
     },
+    width: 400,
+    height: 650,
+    resizable: false,
+    autoHideMenuBar: true,
   });
 
   if (isDev()) {

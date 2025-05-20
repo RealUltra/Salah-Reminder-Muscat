@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: "Calibri";
+}
+
+.container {
+  background-image: url('assets/background-v3.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.current-time {
+  position: absolute;
+  top: 130px;
+  left: 88px;
+  font-size: 60px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.current-date {
+  position: absolute;
+  top: 195px;
+  left: 125px;
+  font-size: 30px;
+  font-weight: bold;
+  user-select: none;
+}
+
+table {
+  border-collapse: collapse; /* Removes double borders */
+  user-select: none;
+}
+
+th, td {
+  text-align: center;
+  font-weight: bold;
+}
+
+th {
+  border: 0;
+  padding: 4px; 
+}
+
+td {
+  border: 1px solid black;
+  padding: 8px; 
+}
+
+.salah-table {
+  position: absolute;
+  top: 250px;
+  left: 52px;
+  width: 280px;
+}
+
+.adhaan {
+  color: #B71C1C;
+}
+
+
+.iqamah {
+  color: #2E7D32;
+}
+
+.reload-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 202px;
+  left: 300px;
+}
+
+.reload-icon {
+  width: 25px;
+  height: 25px;
+}

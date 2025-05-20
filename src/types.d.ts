@@ -1,10 +1,17 @@
+declare module "*";
+
 interface SalahTimes {
-  fajr: Date;
+  fajr: Salah;
   sunrise: Date;
-  dhuhr: Date;
-  asr: Date;
-  maghrib: Date;
-  ishaa: Date;
+  dhuhr: Salah;
+  asr: Salah;
+  maghrib: Salah;
+  ishaa: Salah;
+}
+
+interface Salah {
+  adhaanTime: Date;
+  iqamahTime: Date;
 }
 
 interface SalahTimesPayload {
