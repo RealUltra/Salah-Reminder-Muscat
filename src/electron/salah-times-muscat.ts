@@ -64,20 +64,28 @@ export async function getSalahTimesForMonth(
 
       const salahTimes: SalahTimes = {
         fajr: {
+          name: "fajr",
           adhaanTime: fajrTime,
           iqamahTime: getIqamahTime("fajr", fajrTime),
         },
         sunrise: sunriseTime,
         dhuhr: {
+          name: "dhuhr",
           adhaanTime: dhuhrTime,
           iqamahTime: getIqamahTime("dhuhr", dhuhrTime),
         },
-        asr: { adhaanTime: asrTime, iqamahTime: getIqamahTime("asr", asrTime) },
+        asr: {
+          name: "asr",
+          adhaanTime: asrTime,
+          iqamahTime: getIqamahTime("asr", asrTime),
+        },
         maghrib: {
+          name: "maghrib",
           adhaanTime: maghribTime,
           iqamahTime: getIqamahTime("maghrib", maghribTime),
         },
         ishaa: {
+          name: "ishaa",
           adhaanTime: ishaaTime,
           iqamahTime: getIqamahTime("ishaa", ishaaTime),
         },

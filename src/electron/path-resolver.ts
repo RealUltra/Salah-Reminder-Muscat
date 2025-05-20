@@ -1,7 +1,6 @@
 import { app } from "electron";
 import path from "path";
 import { isDev } from "./utils.js";
-import { pathToFileURL } from "url";
 
 export function getPreloadPath() {
   return path.join(

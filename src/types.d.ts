@@ -9,7 +9,10 @@ interface SalahTimes {
   ishaa: Salah;
 }
 
+type SalahName = "fajr" | "dhuhr" | "asr" | "maghrib" | "ishaa";
+
 interface Salah {
+  name: SalahName;
   adhaanTime: Date;
   iqamahTime: Date;
 }

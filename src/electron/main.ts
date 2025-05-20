@@ -1,7 +1,9 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, dialog } from "electron";
 import { ipcMainHandle, isDev } from "./utils.js";
 import { getPreloadPath, getUIPath } from "./path-resolver.js";
 import { getSalahTimesPayload } from "./salah-times-muscat.js";
+import "./salah-monitor.js";
+import { scheduleReminders } from "./salah-monitor.js";
 
 app.on("ready", async () => {
   const mainWindow = new BrowserWindow({
@@ -23,4 +25,6 @@ app.on("ready", async () => {
   ipcMainHandle("getSalahTimes", () => {
     return getSalahTimesPayload();
   });
+
+  await scheduleReminders();
 });

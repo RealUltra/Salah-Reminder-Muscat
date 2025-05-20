@@ -58,3 +58,30 @@ export function getIsoDate(date: Date): string {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
+
+export function getSalahEndTime(
+  payload: SalahTimesPayload,
+  salahName: SalahName
+): Date {
+  switch (salahName) {
+    case "fajr": {
+      return payload.today.sunrise;
+    }
+
+    case "dhuhr": {
+      return payload.today.asr.adhaanTime;
+    }
+
+    case "asr": {
+      return payload.today.maghrib.adhaanTime;
+    }
+
+    case "maghrib": {
+      return payload.today.ishaa.adhaanTime;
+    }
+
+    case "ishaa": {
+      return payload.tomorrow.fajr.adhaanTime;
+    }
+  }
+}
