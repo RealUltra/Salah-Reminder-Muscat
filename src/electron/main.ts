@@ -7,6 +7,9 @@ import { scheduleReminders } from "./salah-monitor.js";
 import { createTray } from "./tray.js";
 import { handleEvents } from "./event-handler.js";
 
+app.setName("Salah Reminder (Muscat)");
+app.setAppUserModelId("com.codealyst.salah-reminder-muscat");
+
 Menu.setApplicationMenu(null);
 
 app.on("ready", async () => {
@@ -18,7 +21,7 @@ app.on("ready", async () => {
     height: 650,
     resizable: false,
     alwaysOnTop: true,
-    icon: path.join(getAssetsPath(), "icons/icon_1024.png"),
+    icon: path.join(getAssetsPath(), "icons", "icon_32.png"),
   });
 
   if (isDev()) {

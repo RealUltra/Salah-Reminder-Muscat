@@ -5,7 +5,6 @@
     "extraResources": ["dist-electron/preload.cjs", "src/assets/**"],
     "icon": "./src/assets/icons/icon_1024.png",
     "win": {
-        "target": ["portable", "msi"],
-        "publisherName": "Salah Reminder"
+        "target": ["portable", "msi"]
     }
 }
