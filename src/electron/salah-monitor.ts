@@ -178,14 +178,16 @@ async function sendReminder(reminder: Reminder, mainWindow: BrowserWindow) {
   }
 
   const timeLeft = getTimeLeft(reminder);
-  const minutesLeft = Math.floor(timeLeft / 1000 / 60);
+  const minutesLeft = Math.round(timeLeft / 1000 / 60);
   const deadlineStr = formatTime(reminder.deadline);
 
   const title = `${reminder.forIqamah ? "Iqamah" : "Salah"} Reminder`;
   const message = reminder.forIqamah
     ? `${salahName} Iqamah happens in ${minutesLeft} minutes at ${deadlineStr}`
     : `${salahName} time ends in ${minutesLeft} minutes at ${deadlineStr}!`;
-  const detail = reminder.forIqamah ? "Are you going?" : "Have you prayed?";
+  const detail = reminder.forIqamah
+    ? "Are you going to the mosque?"
+    : "Have you prayed?";
 
   const options = {
     buttons: ["Yes", "No"],
@@ -288,5 +290,6 @@ async function remind(payload: SalahTimesPayload, mainWindow: BrowserWindow) {
   }
 
   // No more reminders for this salah, so let's check the reminder pool again for the next one.
-  remind(payload, mainWindow);
+  const delay = Math.min(...intervals) * 60 * 1000;
+  setTimeout(() => remind(payload, mainWindow), delay);
 }
