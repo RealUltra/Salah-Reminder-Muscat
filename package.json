@@ -2,6 +2,7 @@
   "name": "salah-reminder-muscat",
   "private": true,
   "version": "1.0.0",
+  "author": "Codealyst",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
