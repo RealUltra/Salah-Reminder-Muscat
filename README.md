@@ -1,6 +1,6 @@
 # Salah-Reminder-Muscat
 
-A simple Electron app that reminds users of Islamic prayer times in Muscat, Oman.
+A simple Electron app that reminds users of Islamic prayer times in **Muscat, Oman**.
 
 ## Motivation & Purpose
 
@@ -22,15 +22,16 @@ The app sends periodic reminders for salah (the islamic prayers) at appropriate 
 ## Limitations
 
 - Iqamah timings are variable based on the mosque, so the app's mosque reminder functionality would only work for me and others in my neighborhood.
-- At the moment, the app can only retrieve salah times for Muscat, Oman.
+- At the moment, the app can only retrieve salah times for **Muscat, Oman**.
 - While adhaan timings are fairly constant in Muscat, they may vary from mosque to mosque in other places.
 
 ## Next Steps
 
-- Improve the UI with bootstrap.
+- Add a tray icon menu to allow the user to quit the app from tray, as well as still open it.
 - Add a countdown on the UI for the upcoming prayer.
 - Add a marker on the UI that signifies the upcoming prayer.
-- Add Kelowna, Canada and Karachi, Pakistan to the app as those are other cities I often live in.
+- Improve the UI with bootstrap.
+- Add **Kelowna, Canada** and **Karachi, Pakistan** to the app as those are other cities I often live in.
   - Allow the user to switch between the cities but also add location detection.
   - Remind the user based on the time at the location selected.
 
