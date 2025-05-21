@@ -278,7 +278,8 @@ async function remind(payload: SalahTimesPayload, mainWindow: BrowserWindow) {
   // There will still be reminders for this salah, but according to the salah end reminder intervals.
   if (reminder.forIqamah) {
     const maxInterval = Math.max(...SALAH_END_REMINDER_INTERVALS) * 60 * 1000;
-    const timeLeft = getTimeLeft(reminder);
+    const timeLeft =
+      getSalahEndTime(payload, reminder.salah.name).getTime() - Date.now(); // Not using getTimeLeft() function because reminder.endTime is incorrect for our purposes.
     const delay = timeLeft - maxInterval;
 
     console.log(
