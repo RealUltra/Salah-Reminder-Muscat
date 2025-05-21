@@ -12,18 +12,18 @@ This app was built for me to:
 
 The app sends periodic reminders for salah (the islamic prayers) at appropriate times so that the user is reminded to go to the mosque, or pray at home if it is too late to go to the mosque.
 
-## Limitations
-
-- Iqamah timings are variable based on the mosque, so the app's mosque reminder functionality would only work for me and others in my neighborhood.
-- At the moment, the app can only retrieve salah times for Muscat, Oman.
-- While adhaan timings are fairly constant in Muscat, they may vary from mosque to mosque in other places.
-
 ## Features
 
 - Displays salah times in Muscat, Oman through the UI.
 - Allows the user to see yesterday & tomorrow's prayer times as well.
 - Sends the user reminders at set intervals to remind them to go to the mosque or pray at home if they are late.
   - Keeps track of whether the user has prayed already or not.
+
+## Limitations
+
+- Iqamah timings are variable based on the mosque, so the app's mosque reminder functionality would only work for me and others in my neighborhood.
+- At the moment, the app can only retrieve salah times for Muscat, Oman.
+- While adhaan timings are fairly constant in Muscat, they may vary from mosque to mosque in other places.
 
 ## Next Steps
 
