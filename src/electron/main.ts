@@ -27,7 +27,7 @@ app.on("ready", async () => {
     mainWindow.loadFile(getUIPath());
 
     app.setLoginItemSettings({
-      openAtLogin: false,
+      openAtLogin: true,
       path: app.getPath("exe"),
     });
   }
